@@ -1,6 +1,20 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-export default class Controls {
+class Scene {
+  constructor() {
+    this.renderer = new THREE.WebGLRenderer();
+    this.renderer.setPixelRatio(window.devicePixelRatio);
+    this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    this.renderer.toneMappingExposure = 1;
+
+    this.scene = new THREE.Scene();
+    this.scene.background = new THREE.Color(0x000000);
+    this.scene.background = new THREE.Color(0x000000);
+  }
+}
+class Controls {
   constructor(camera, dom) {
     this.controls = new OrbitControls(camera, dom);
     this.controls.enablePan = false;
@@ -17,3 +31,5 @@ export default class Controls {
     this.controls.minDistance = 6.5;
   }
 }
+
+export { Scene, Controls };
