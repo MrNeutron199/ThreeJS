@@ -12,8 +12,8 @@ class Loader {
   }
   load(modelName, camera, scene, renderer, pos) {
     this.loader.load(
-      "LittlestTokyo.glb",
-      async function (gltf) {
+      modelName,
+      async (gltf) => {
         const m = gltf.scene;
         await renderer.compileAsync(m, camera, scene);
         // m.position.set(-0.2, 1.3, -0.3);
@@ -25,9 +25,9 @@ class Loader {
           if (object.isMesh) object.castShadow = true;
         });
         m.name = modelName;
+        model = m;
         if (pos.rotation) m.rotation.y = pos.rotation;
         scene.add(m);
-        model = m;
       },
       undefined,
       function (e) {

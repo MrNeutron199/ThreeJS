@@ -1,3 +1,22 @@
+import * as THREE from "three";
+import { GUI } from "three/addons/libs/lil-gui.module.min.js";
+class UI {
+  constructor(objectToChange) {
+    this.gui = new GUI();
+    this.objectToChange = objectToChange;
+  }
+  setup(settings) {
+    let list = Object.keys(settings);
+    list.forEach((a) => {
+      this.gui.add(settings, a).onChange((val) => {
+        settings[a] = val;
+        const r = Object.values(settings).map((a) => Number(a));
+        this.objectToChange.position.set(...r);
+      });
+    });
+  }
+}
+export default UI;
 // const folder2 = gui.addFolder("Coordinates");
 // const folder2 = gui.addFolder("Visual settings");
 // folder2.add(settings, "animations").onChange(function (val) {

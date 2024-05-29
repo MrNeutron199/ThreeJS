@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3D Model</title>
   </head>
+  <style>
+    #anID {
+      font-size: 2px;
+      height: 7px;
+      width: 7px;
+      color: aqua;
+    }
+  </style>
   <script type="importmap">
     {
       "imports": {
@@ -13,8 +21,11 @@
       }
     }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <!-- <script src="https://unpkg.com/three@0.118.0/examples/js/renderers/CSS3DRenderer.js"></script> -->
   <body>
     <div id="webgl"></div>
+    <div id="css"></div>
   </body>
   <script type="module" src="./main.js"></script>
 </html>
